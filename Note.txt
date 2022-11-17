@@ -50,7 +50,7 @@ donnee / resultat : quantite_ingere
 Precondition : oui_bib = vraie,
 
 debut
-	afficher(donner la quantité ingerer),
+	afficher(donner la quantitEingerer),
 	saisir(quantite_ingerer),
 fin
 
@@ -68,7 +68,7 @@ debut
 fin
 
 
-// on veut maintenant prendre en compte le faite que le bb ait regurgité
+// on veut maintenant prendre en compte le faite que le bb ait regurgitE
 
 est ce une fonction ou une procédure ?
 
