@@ -1,0 +1,88 @@
+Class biberon{
+	intervalle_de_rappel,
+	quantite_max,
+	quanite_min,
+	volume_bib;
+
+	oui_prise;
+
+	biberon(),
+	~biberon(),
+	biberon(type param1...),
+	void rajout_heure_prise(type param1...),
+
+}
+
+procedure rajou_heure(heur_de_prise entier, intervalle entier)
+preconditions : les champs doivent etre initialisees
+donnees : heure_de_prise, intervalle
+donnees/resultats : heure_de_prise, intervalle_de_rappel,
+variables locales :
+	non,
+
+
+debut
+	si heure actu = heure_de_prise + intervalle_de_rappel alors
+		afficher("c'est l'heure de donner le bib")
+
+	si (ui_bib = vraie)alors
+		heure_de_prise += intervalle_de_rappel,
+
+fin
+
+=========================================================================================
+
+debut
+
+//objectif : rajouter une heure de prise
+	si heure_actu <= 23 et heure_de_prise + intervalle_de_rappel <= 23 faire
+		afficher("d'ici combien de temps souhaiteriez vous le faire ?")
+		saisir(heure_rajouter);
+
+
+fin
+
+=========================================================================================
+
+procedure rajoutIngerer(quantite_ingerer)
+
+donnee / resultat : quantite_ingere
+Precondition : oui_bib = vraie,
+
+debut
+	afficher(donner la quantité ingerer),
+	saisir(quantite_ingerer),
+fin
+
+=========================================================================================
+
+Procedure Rappel(intervalle_de_rappel entier, heure_de_prise entier)
+Precondition : objet initialise
+donnes : heure_de_rappel, intervalle_de_rappel
+donnes / resultat :
+variables locales :
+
+debut
+	si(heure_actu = heure_de_rappel + intervalle_de_rappel)alors
+		afficher("c'est l'heure")
+fin
+
+
+// on veut maintenant prendre en compte le faite que le bb ait regurgité
+
+est ce une fonction ou une procédure ?
+
+bool regurgitre(aitregurgiter bool, qte_lait_perdu entier, ...) : bool
+Precondition :
+donnees :
+donnee / resultats :
+variables locales :
+
+debut 
+	afficher("t'il regurgiter son biberon ?, si oui tapez 1 , si non tapez 0")
+	saisir(a_regurgiter)
+	si a_regurgiter alors
+	afficher ("donner la quantite restante")
+	saisir(qte_restante)
+	si(quantite_min > qte_restante)alors
+		afficher("ajouter du lait svp !")

@@ -1,0 +1,9 @@
+#include <SDL.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <SDL_ttf.h>
+#include <iomanip>
+#include <time.h>
+#include <cstring>
+#include <string>
