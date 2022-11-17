@@ -7,3 +7,6 @@
 #include <time.h>
 #include <cstring>
 #include <string>
+#include <vector>
+#include <list>
+#include <algorithm>

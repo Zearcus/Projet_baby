@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include "Biberon.h"
 
 biberon::biberon(int QuantLeft, int MaxCap)

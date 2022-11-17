@@ -1,7 +1,6 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include <list>
+#include "general.h"
+
 using namespace std;
 
 struct Items

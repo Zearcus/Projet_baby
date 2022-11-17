@@ -1,15 +1,26 @@
-#include "Window.h"
 #include "Start.h"
 
 
+Start::Start() {
+	this->mainWindow = new Window();
+	this->time = new Timer();
+}
+
+Start::~Start() {
+	delete this->time;
+	SDL_DestroyRenderer(this->mainWindow->getRenderer());
+	delete this->mainWindow;
+	//Quit SDL subsystems
+	SDL_Quit();
+}
 
 void Start::startInit(){
 
-	this->mainWindow = new Window();
-	this->time = new Timer();
-	this->mainWindow->WindowInit("Project Baby !", 800, 1000);
+
+	this->mainWindow->WindowInit("Project Baby !", 700, 500);
 }
 
+//loop of the application
 void Start::loop() {
 
 	//Hack to get window to stay up
@@ -19,32 +30,27 @@ void Start::loop() {
 		while (SDL_PollEvent(&event))
 		{
 			//show part
-			
-
-			
 			showTimer(this->time->getHours(), this->time->getminutes());
-			//showButtonStart();
+
+			//refresh the renderer
 			SDL_RenderPresent(this->mainWindow->getRenderer());
 
-			returnMouseClick();
+			returnMouseClick();//
 
 			switch (event.type) {
 
 				case SDL_MOUSEBUTTONDOWN:
-				//test de click bouton plus coords 
+				//test click button coords 
 				returnMouseClick();
 
-				//test c'est un bouton ou nn 
+				//test is a button
 				ButtonOrNo();
 
-				//click button gauche 
+				//left button click
 				UseButton(event.button);
 				break;
 
 				case SDL_QUIT:
-					delete this->time;
-					SDL_DestroyRenderer(this->mainWindow->getRenderer());
-					delete this->mainWindow;
 					//Quit SDL subsystems
 					SDL_Quit();
 
@@ -55,15 +61,17 @@ void Start::loop() {
 	}
 }
 
-void Start::showButton() {
+//button part
 
-	rectangle.x = 300;
-	rectangle.y = 300;
-	rectangle.h = 300;
-	rectangle.w = 300;
+void Start::showButton(int buttonX, int buttonY, int buttonH, int buttonW, int buttonR, int buttonG, int buttonB) {
+
+	rectangle.x = buttonX;
+	rectangle.y = buttonY;
+	rectangle.h = buttonH;
+	rectangle.w = buttonW;
  
  		//define color for the renderer
-	if (SDL_SetRenderDrawColor(this->mainWindow->getRenderer(), 0, 255, 255, SDL_ALPHA_OPAQUE) != 0) {
+	if (SDL_SetRenderDrawColor(this->mainWindow->getRenderer(), buttonR, buttonG, buttonB, SDL_ALPHA_OPAQUE) != 0) {
 		this->mainWindow->SDL_ExitWithError("impossible de dessiner une couleur");
 	}
 
@@ -73,13 +81,15 @@ void Start::showButton() {
 	//SDL_RenderPresent(this->mainWindow->getRenderer());
 }
 
+//Timer part
+
 void Start::showTimer(int hours, int minutes) {
 
 	this->time->TakeHours();
 	SDL_SetRenderDrawColor(this->mainWindow->getRenderer(), 0, 0, 0, SDL_ALPHA_OPAQUE);
 	this->mainWindow->SDL_CleanRenderer();
 
-	showButton();
+	showButton(250, 0, 700, 250, 128, 128, 128);
 
 
 
@@ -114,6 +124,8 @@ void Start::showTimer(int hours, int minutes) {
 	
 
 }
+
+//Mouse
 
 void Start::returnMouseClick() {
 	int buttons;

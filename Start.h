@@ -1,18 +1,24 @@
 #pragma once
 #include "Window.h"
 #include "Timer.h"
+//#include "Biberon.h"
+//#include "ShoppingL.h"
 
 class Start{
 
 public:
 
+	Start();
+	~Start();
 
-
+	//main part
 	void startInit();
 	void loop();
-	void showButton();
-	void showTimer(int, int);
 
+	//in the loop
+	void showButton(int buttonX, int buttonY, int buttonH, int buttonW, int buttonR, int buttonG, int buttonB);
+	void showTimer(int, int);
+	//Mouse part
 	void returnMouseClick();
 	void ButtonOrNo();
 	int UseButton(SDL_MouseButtonEvent& b);
@@ -35,5 +41,4 @@ protected:
 	SDL_Texture* Message;
 	TTF_Font* test;
 	
-
 };

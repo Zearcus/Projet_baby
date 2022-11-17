@@ -70,7 +70,7 @@ int Window::WindowInit(const char* name, int heigh, int width) {
 
 
 
-
+//function to clean the renderer
 void Window::SDL_CleanRenderer() {
 	if (SDL_RenderClear(this->renderer) != 0) {
 		SDL_ExitWithError("clear du renderer");
@@ -78,6 +78,7 @@ void Window::SDL_CleanRenderer() {
 
 }
 
+//function to exit condition if have an error
 void Window::SDL_ExitWithError(const char* message) {
 	SDL_Log("Erreur : %s > %s\n", message, SDL_GetError());
 	TTF_Quit();
@@ -85,6 +86,7 @@ void Window::SDL_ExitWithError(const char* message) {
 	exit(EXIT_FAILURE);
 }	
 
+//function to get the renderer
 SDL_Renderer* Window::getRenderer() {
 	return this -> renderer;
 }
