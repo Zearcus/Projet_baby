@@ -113,6 +113,7 @@ void Start::showTimer(int hours, int minutes) {
 	Message_rect.h = this->surfacemessage->h;
 	Message_rect.w = this->surfacemessage->w;
 
+	//timerBib(this->time->getSecondsMinuteur());
 
 	SDL_RenderCopy(this->mainWindow->getRenderer(), this->Message, NULL, &Message_rect);
 
@@ -124,6 +125,35 @@ void Start::showTimer(int hours, int minutes) {
 	
 
 }
+
+//void Start::timerBib(int secondsminuteur) {
+//
+//    this->time->showMinuteur();
+//
+//    this->lea = TTF_OpenFont("font/leadcoat.ttf", 24);
+//
+//    //crée la couleur bleu en rgb
+//    SDL_Color bleu = { 0, 255, 255 };
+//
+//    string minuteur = to_string(secondsminuteur) + "s ";
+//
+//    //crée un texte sur une surface puis inser la font, texte, couleur
+//    this->surfacemessagee = TTF_RenderText_Solid(this->lea, minuteur.c_str(), bleu);
+//
+//    //conversion de la surface en texture 
+//    this->Message = SDL_CreateTextureFromSurface(this->mainWindow->getRenderer(), this->surfacemessagee);
+//
+//
+//    Messagee_rect.x = 100; // le message afficher sera en haut a gauche
+//    Messagee_rect.y = 0;
+//    Messagee_rect.h = this->surfacemessagee->h;
+//    Messagee_rect.w = this->surfacemessagee->w;
+//
+//    SDL_RenderCopy(this->mainWindow->getRenderer(), this->Message, NULL, &Messagee_rect);
+//
+//    SDL_FreeSurface(this->surfacemessagee);
+//    SDL_DestroyTexture(this->Message);
+//}
 
 //Mouse
 

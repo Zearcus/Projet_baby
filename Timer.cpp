@@ -40,3 +40,38 @@ int Timer::getHours() {
 int Timer::getminutes() {
 	return this->minutes;
 }
+
+//void Timer::showMinuteur() {
+//
+//    if (secondsminuteur > 0) {
+//        secondsminuteur--;
+//        SDL_Delay(1000);
+//    }
+//    else if (minutesminuteur > 0) {
+//        secondsminuteur + 60;
+//        minutesminuteur--;
+//    }
+//    else if(minutesminuteur == 0) {
+//        minutesminuteur + 60;
+//        hoursminuteur--;
+//    }
+//    else {
+//        secondsminuteur = 0;
+//        minutesminuteur = 0;
+//        hoursminuteur = 0;
+//    }
+//}
+//
+//int Timer::getHoursMinuteur() {
+//    return this->hoursminuteur;
+//
+//}
+//
+//int Timer::getminutesMinuteur() {
+//    return this->minutesminuteur;
+//}
+//
+//int Timer::getSecondsMinuteur() {
+//    return this->secondsminuteur;
+//
+//}
