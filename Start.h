@@ -6,8 +6,7 @@ class Start{
 
 public:
 
-	Start();
-	~Start();
+
 
 	void startInit();
 	void loop();

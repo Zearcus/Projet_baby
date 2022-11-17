@@ -1,22 +1,12 @@
 #include "Window.h"
 #include "Start.h"
 
-Start::Start() {
-	this->mainWindow = new Window();
-	this->time = new Timer();
-}
 
-Start::~Start() {
-	delete this->time;
-	SDL_DestroyRenderer(this->mainWindow->getRenderer());
-	delete this->mainWindow;
-	//Quit SDL subsystems
-	SDL_Quit();
-}
 
 void Start::startInit(){
 
-
+	this->mainWindow = new Window();
+	this->time = new Timer();
 	this->mainWindow->WindowInit("Project Baby !", 800, 1000);
 }
 
@@ -52,7 +42,11 @@ void Start::loop() {
 				break;
 
 				case SDL_QUIT:
-					quit = true;
+					delete this->time;
+					SDL_DestroyRenderer(this->mainWindow->getRenderer());
+					delete this->mainWindow;
+					//Quit SDL subsystems
+					SDL_Quit();
 
 				default:
 					break;
