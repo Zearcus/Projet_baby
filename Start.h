@@ -14,9 +14,14 @@ public:
 	void showButton();
 	void showTimer(int, int);
 
+	void returnMouseClick();
+	void ButtonOrNo();
+	int UseButton(SDL_MouseButtonEvent& b);
+
 protected:
 
 	bool quit;
+	int mouseX = 0, mouseY = 0;
 
 	//instances
 	Window* mainWindow;

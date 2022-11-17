@@ -2,14 +2,8 @@
 #include "Start.h"
 
 Start::Start() {
-
-	rectangle.x = 300;
-	rectangle.y = 300;
-	rectangle.h = 300;
-	rectangle.w = 300;
-
-
-
+	this->mainWindow = new Window();
+	this->time = new Timer();
 }
 
 Start::~Start() {
@@ -22,8 +16,7 @@ Start::~Start() {
 
 void Start::startInit(){
 
-	this->mainWindow = new Window();
-	this->time = new Timer();
+
 	this->mainWindow->WindowInit("Project Baby !", 800, 1000);
 }
 
@@ -37,12 +30,26 @@ void Start::loop() {
 		{
 			//show part
 			
+
 			
 			showTimer(this->time->getHours(), this->time->getminutes());
 			//showButtonStart();
 			SDL_RenderPresent(this->mainWindow->getRenderer());
 
+			returnMouseClick();
+
 			switch (event.type) {
+
+				case SDL_MOUSEBUTTONDOWN:
+				//test de click bouton plus coords 
+				returnMouseClick();
+
+				//test c'est un bouton ou nn 
+				ButtonOrNo();
+
+				//click button gauche 
+				UseButton(event.button);
+				break;
 
 				case SDL_QUIT:
 					quit = true;
@@ -55,6 +62,11 @@ void Start::loop() {
 }
 
 void Start::showButton() {
+
+	rectangle.x = 300;
+	rectangle.y = 300;
+	rectangle.h = 300;
+	rectangle.w = 300;
  
  		//define color for the renderer
 	if (SDL_SetRenderDrawColor(this->mainWindow->getRenderer(), 0, 255, 255, SDL_ALPHA_OPAQUE) != 0) {
@@ -109,4 +121,26 @@ void Start::showTimer(int hours, int minutes) {
 
 }
 
+void Start::returnMouseClick() {
+	int buttons;
+	SDL_PumpEvents();
+	buttons = SDL_GetMouseState(&mouseX, &mouseY);
+	SDL_Log("message %d, %d", mouseX, mouseY);
+	if ((buttons & SDL_BUTTON_LMASK) != 0) {
+		SDL_Log("mouse button 1 is pressed");
+	}
+}
+
+
+void Start::ButtonOrNo() {
+	int x = mouseX;
+	int y = mouseY;
+}
+
+int Start::UseButton(SDL_MouseButtonEvent& b) {
+	if (b.button == SDL_BUTTON_LEFT) {
+		//click gauche
+	}
+	return 0;
+}
 
